@@ -48,9 +48,9 @@ print(head(data, 8))
 
 #### *2. What is mean total number of steps taken per day?*
 
-1. Calculate the total number of steps taken per day
+- 1. Calculate the total number of steps taken per day
 
-Use the *ddply()* function to find the mean total number of steps taken per day.
+Use the *ddply()* function to find the total number of steps taken per day.
 
 ```{r, load_libraries}
 library(plyr, warn.conflicts = FALSE)
@@ -63,7 +63,7 @@ print(head(ans, 5))
 ```
 <br>
 
-2. Make a histogram of the total number of steps taken each day
+- 2. Make a histogram of the total number of steps taken each day
 
 Use the *hist()* function to make the plot.
 
@@ -72,7 +72,7 @@ hist(ans$dailySteps, col = "steelblue", main = "Histogram of the Total Number\no
 ```
 <br>
 
-3. Calculate and report the mean and median of the total number of steps taken per day
+- 3. Calculate and report the mean and median of the total number of steps taken per day
 
 Use the *mean()* and *median()* functions with *na.rm=TRUE*.  The mean is **10766.19** and the median is **10765**.
 
@@ -84,7 +84,7 @@ median(ans$dailySteps, na.rm = TRUE)
 
 #### *3. What is the average daily activity pattern?*
 
-1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
+- 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
 Use the *ddply()* function to calculate the average number of steps for each interval.  Convert the *interval* variable to a time format using the *strptime()* function.  Ignore the date in the *interval* variable since it is an arbitrary date.
 
@@ -102,7 +102,7 @@ plot(data2$interval, data2$aveStepsTaken, type = "l", main = "Average Daily Acti
 ```
 <br>
 
-2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
+- 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 Use the *max()* function to find the interval with the maximum number of steps.  According to the output below, the maximum number of steps occurs at the **8:35** interval.
 
@@ -113,7 +113,7 @@ data2[which(data2$aveStepsTaken == max(data2$aveStepsTaken)), "interval"]
 
 #### *4. Imputing missing values*
 
-1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
+- 1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 
 Use the *sum()* and *complete.cases()* functions to determine the number of rows with missing values.  The number of rows with missing values is **2304**.
 
@@ -123,7 +123,7 @@ sum(!complete.cases(data3))
 ```
 <br>
 
-2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
+- 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 
 We will use the mean for the 5-minute interval calculated from part 3-1, the data in **ans2**.  Below is the data table with NAs still present.
 
@@ -132,7 +132,7 @@ print(head(data3, 8))
 ```
 <br>
 
-3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
+- 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
 Below is the same table with the NAs replaced with the means of the intervals.
 
@@ -143,7 +143,7 @@ print(head(data3, 8))
 ```
 <br>
 
-4. Make a histogram of the total number of steps taken each day.  Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
+- 4. Make a histogram of the total number of steps taken each day.  Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
 Use the *hist()* function to make the plot.  With the NAs values filled in the dataset, the mean is **10765.64** and the median is **10762**.  These new values differ slightly from the values reported in step 2-3.  Therefore, there is not much of an impact of imputing missing data on a dataset of this size.
 
@@ -160,7 +160,7 @@ median(ans3$dailySteps)
 
 #### *5. Are there differences in activity patterns between weekdays and weekends?*
 
-1. Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
+- 1. Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
 Use the *mutate()* function to add two new variables to the dataset - a *day* variable for the day of the week and a *typeOfDay* variable to indicate weekday or weekend.  A '0' corresponds to a weekend and a '1' corresponds to a weekday.  The factor labels will change the *typeOfDay* accordingly.
 
@@ -180,7 +180,7 @@ print(data4[1441:1443, ])
 ```
 <br>
 
-2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
+- 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
 Use the *ddply()* function to calculate the average number of steps for each interval.  Convert the *interval* variable to time with the *strptime()* function.  Make the plot with ggplot2 using facets.  Fix the x-axis tick labels with the *scales* library.
 
