@@ -115,7 +115,7 @@ data2[which(data2$aveStepsTaken == max(data2$aveStepsTaken)), "interval"]
 
 1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 
-Use the *sum()* and *complete.cases()* functions to determine the number rows with missing values.  The number of rows with missing values is **2304**.
+Use the *sum()* and *complete.cases()* functions to determine the number of rows with missing values.  The number of rows with missing values is **2304**.
 
 ```{r}
 data3 <- data
@@ -215,4 +215,4 @@ The mean/median of the total number of steps taken per day did not change much f
 
 The histograms and the daily activity plot show that on most days, the subject of the study takes between 10,000-15,000 steps per day with the most activity at the 8:35 time interval.  
 
-The daily activity plot comparing weekdays to weekends indicate the subject is more active throughout the day on the weekends.  This might suggest the subject has a desk job.
+The daily activity plot comparing weekdays to weekends indicate the subject is more active throughout the day on the weekends.  This might suggest the subject has a desk job during the weekdays.
